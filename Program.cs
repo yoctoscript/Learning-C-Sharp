@@ -1,12 +1,13 @@
 ﻿using System;
+using MyDataTypes;
 
 namespace MyNameSpace
 {
-    class MyProgram
+    internal class MyProgram
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            DataTypes.Entry();
         }
     }
 }
