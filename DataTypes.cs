@@ -151,7 +151,7 @@ namespace MyDataTypes
             /// "E". Result: Exponential notation. Supported by: All numeric types. Precision specifier: Number of decimal digits.
             Console.WriteLine($"{1.33333:E10}");
             /// Left alignment 
-            Console.WriteLine($"[{"I'm left aligned",-40}]");
+            Console.WriteLine($"[{"I'm left aligned", -40}]");
             /// Right alignment
             Console.WriteLine($"[{"I'm right aligned", 40}]");
         }
