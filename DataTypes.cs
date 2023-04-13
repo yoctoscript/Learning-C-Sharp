@@ -12,19 +12,19 @@ namespace MyDataTypes
         public static void Entry()
         {   
             Console.WriteLine("Hello World from DataTypes Class");
-            /// A value type is a data type that stores its value directly in memory.
+            /// A value type is a type of data that directly stores its value into the memory allocated to the variable holding it.
             /// This means that when you assign a value type variable to another variable, the second variable gets a copy of the first variable's value, and any changes made to the second variable won't affect the first.
             /// Examples of value types include int, float, double, bool, and char.
             bool myBool = true;
             myBool = false;
-            char myChar = '\0';
+            char myChar = '\0'; /// 16-bit unicode character.
             myChar = '\"';
             byte myByte = 255;
             myByte = 0;
             sbyte mySignedByte = 127;
             mySignedByte = -127;
             /// You can use underscores to separate groups of digits in numeric literals for improved readability.
-            /// However, underscores cannot be placed at the beginning or end of the literal, next to the decimal point, or in literals with a base other than 10.
+            /// However, underscores can be used within decimal integers, octal, and hexadecimal literals as well as float, double, and decimal type literals. They cannot be placed at the beginning or end of the literal, next to the decimal point.
             short myShort = 32_767;
             myShort = -32_768;
             ushort myUnsignedShort = 65_535;
@@ -51,6 +51,8 @@ namespace MyDataTypes
             /// This means that when you assign a reference type variable to another variable, both variables point to the same memory location, and any changes made to the second variable will affect the first.
             /// Examples of reference types include classes, arrays, and strings.
             string myString = "Hello " + "C#";
+            /// a verbatim string is a string that is marked with the @ character prefix.
+            /// Verbatim strings are useful when you need to include special characters or escape sequences in your string literals without having to escape them with the backslash (\) character.
             string myPath = @"C:\Program Files\C#\Learning-C-Sharp";
             string harder = "harder";
             string myInterpolatedString = $"{"Why"} {"make"} {"things"} {harder}";
@@ -65,16 +67,84 @@ namespace MyDataTypes
             Console.WriteLine(sb.ToString());
             /// Boxing is the process of converting a value type to an object reference type. 
             /// When a value type is boxed, a new object is created on the heap to hold the value, and a reference to that object is returned.
-            /// The original value type variable is now referencing the newly created object.
+            /// The original value type variable is not updated to reference the newly created object.
             int i = 420;
-            ++i;
+            unsafe
+            {
+                Console.WriteLine($"Value of i = {i}, Address = {(ulong)&i:X}");
+            }
             object myObject = i; /// boxing
+            unsafe
+            {
+                Console.WriteLine($"Value of myObject = {myObject}, Address = {(ulong)&myObject:X}");
+            }
+            unsafe
+            {
+                Console.WriteLine($"Value of i = {i}, Address = {(ulong)&i:X}");
+            }
             int j = myObject as int? ?? 0; /// unboxing
             Console.WriteLine($"{i}, {j}");
             /// When you use the dynamic type, the compiler defers the type checking to runtime and resolves method and property calls based on the actual type of the object.
             dynamic myDynamicObject = "Some Data";
             Console.WriteLine(myDynamicObject.Length);
-
+            /// The default behavior for integer arithmetic operations is "unchecked", which means that the compiler does not generate extra code to check for overflow at runtime.
+            /// If an overflow occurs, the result is truncated to fit within the limits of the data type.
+            /// The "checked" keyword ensures that overflow checking is enabled for the block of code that follows it.
+            checked
+            {
+                try
+                {
+                    int willOverflow = int.MaxValue;
+                    ++willOverflow;
+                }
+                catch (OverflowException e)
+                {
+                    Console.WriteLine("Overflow happened.");
+                }
+            }
+            /// Conversely, the "unchecked" keyword is used to explicitly disable overflow checking for a specific block of code.
+            unchecked
+            {
+                byte willOverflow2 = byte.MaxValue;
+                ++willOverflow2;
+                Console.WriteLine(willOverflow2);
+            }
+            /// A "float" is a 32-bit floating point number with a precision of about 7 digits.
+            float myFloat = 0.1_234_567F;
+            Console.WriteLine($"myFloat = {myFloat}");
+            Console.WriteLine($"Float type: Size = {sizeof(float)}, Max = {float.MaxValue}, Min = {float.MinValue}");
+            /// A "double" is a 64-bit floating point number with a precision of about 15-16 digits.
+            double myDouble = 0.12_345_678_912_345_678D;
+            Console.WriteLine($"myDouble = {myDouble}");
+            Console.WriteLine($"Double type: Size = {sizeof(double)}, Max = {double.MaxValue}, Min = {double.MinValue}");
+            /// A "decimal" is a 128-bit decimal floating point number with a precision of about 28-29 digits.
+            decimal myDecimal = 0.1_234_567_891_234_567_891_234_567_891M;
+            Console.WriteLine($"myDecimal = {myDecimal}");
+            Console.WriteLine($"Decimal type: Size = {sizeof(decimal)}, Max = {decimal.MaxValue}, Min = {decimal.MinValue}");
+            /// Writing binary numbers.
+            byte myBinary = 0b_1011;
+            Console.WriteLine($"myBinary = {myBinary}");
+            /// C# does not have a built-in support for explicit octal literals.
+            /// Writing hexadecimal numbers.
+            byte myHex = 0x12;
+            Console.WriteLine($"myHex = {myHex}");
+            /// https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings
+            /// when using string interpolation, you can format the interpolated values by using the following syntax:
+            /// {variable[,width][:formatString]}
+            /// When used for numeric values, the "D" format specifier is used to pad the value with leading zeros to a specified width.
+            Console.WriteLine($"{1945:D10}");
+            /// The "N" format specifier is used to format numeric values as string with thousands separator and a specified number of decimal places.
+            Console.WriteLine($"{1000000.9999:N2}");
+            /// The "C" format specifier is used to format numeric values as currency string with thousand seperator and a specified number of decimal places.
+            Console.WriteLine($"{10000.3668:C4}");
+            /// The "F" format specifier is used to format numeric values with a specified number of decimal places.
+            Console.WriteLine($"{1337.1337:F2}");
+            /// The "P" format specifier is used to format numeric values as percentage string with a specific number of decimal places
+            Console.WriteLine($"{0.756:P2}");
+            /// The "X" format specifier is used to format numeric integral values as a hexadecimal value with a specified minimum width.
+            Console.WriteLine($"{465:X10}");
+            /// The "E" format specifier is used to format numeric values as scientific notiation string with a specified number of decimal places.
+            Console.WriteLine($"{1.33333:E10}");
         }
     }
 }
@@ -82,4 +152,3 @@ namespace MyDataTypes
 /// Value types store their value directly in memory, while reference types store a reference to a memory location where the actual value is stored.
 /// When you assign a value type variable to another variable, the second variable gets a copy of the first variable's value. When you assign a reference type variable to another variable, both variables point to the same memory location.
 /// Value types are generally more efficient in terms of memory usage and performance, while reference types can be more flexible and allow for more complex data structures and object-oriented programming.
-
