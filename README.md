@@ -6,6 +6,6 @@
 This repository will contain most of my C# study sessions where I pick an existing feature in the language and practice it, I'm going to leave comments on my code so feel free to browse through. (✦ ‿ ✦)
 
 > Why didn’t I take the blue pill?
-## Features
+## Features studied so far ..
 
 - Data Types
