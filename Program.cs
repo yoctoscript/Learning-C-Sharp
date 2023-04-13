@@ -1,5 +1,6 @@
 ﻿using System;
 using MyDataTypes;
+using MyTypeConversion;
 
 namespace MyNameSpace
 {
@@ -7,7 +8,8 @@ namespace MyNameSpace
     {
         static void Main(string[] args)
         {
-            DataTypes.Entry();
+            /// DataTypes.Entry();
+            TypeConversion.Entry();
         }
     }
 }

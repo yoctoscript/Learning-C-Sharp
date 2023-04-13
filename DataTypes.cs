@@ -15,7 +15,7 @@ namespace MyDataTypes
     {
         public static void Entry()
         {   
-            Console.WriteLine("Greetings from DataTypes Class");
+            Console.WriteLine("Greetings from DataTypes class!");
             /// A value type is a data type that stores its value directly in the memory allocated on the stack to the variable holding it.
             /// When you assign a value type variable to another variable, the second variable receives a copy of the value stored in the first variable. This means that any changes made to the second variable won't affect the value stored in the first variable.
             bool myBool = true;
