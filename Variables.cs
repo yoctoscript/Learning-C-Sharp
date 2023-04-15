@@ -44,9 +44,27 @@ namespace MyVariables
                 /// The Decimal type stores the whole number as a 96-bit integer, with the least significant 64 bits representing the value and the most significant 32 bits representing the scale.
                 /// The scale indicates the position of the decimal point in the value.
             }
-           /// 
-           string myString = null;
-
+            /// 
+            /// A nullable is a value type that can also have a null value. Normally, value types like integers or booleans cannot be null, but by using the nullable feature, we can assign a null value to these types.
+            Nullable<int> myNullableInt = new Nullable<int>();
+            Console.WriteLine(myNullableInt.HasValue);
+            try
+            {
+                Console.WriteLine(myNullableInt.Value);
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            double? myNullableDouble = 132.5D;
+            if (myNullableDouble.HasValue)
+            {
+                Console.WriteLine(myNullableDouble);
+                /// To convert a nullable type to a non-nullable type, we use the null coalescing operator '??'.
+                /// It returns the left hand operand if it is not null.
+                /// Otherwise, it returns the right hand operand.
+                double myDouble = myNullableDouble ?? 0D;
+            }
         }
     }
 }
