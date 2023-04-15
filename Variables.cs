@@ -65,6 +65,9 @@ namespace MyVariables
                 /// Otherwise, it returns the right hand operand.
                 double myDouble = myNullableDouble ?? 0D;
             }
+            char? myChar = null;
+            myChar ??= '$';
+            Console.WriteLine(myChar);
         }
     }
 }
