@@ -76,6 +76,13 @@ namespace MyTypeConversion
             {
                 Console.WriteLine(e.Message);
             }
+            /// The Parse method is a built-in method that allows you to convert a string representation of a value to its corresponding data type.
+            Console.WriteLine($"Parsing bool: {bool.Parse("true")}");
+            Console.WriteLine($"Trying to parse char: {char.TryParse("cap", out char result1)}");
+            Console.WriteLine($"Parsing byte: {byte.Parse("+100")}");
+            Console.WriteLine($"Trying to parse short: {short.TryParse("-1337", out short result2)}");
+            Console.WriteLine($"Parsing int: {int.Parse("10")}");
+            Console.WriteLine($"Trying to parse long: {long.TryParse("999999999999999999999", out long result3)}");
         }
         internal enum Color
         {
