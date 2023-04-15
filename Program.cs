@@ -12,7 +12,6 @@ namespace MyNameSpace
             /// DataTypes.Entry();
             /// TypeConversion.Entry();
             Variables.Entry();
-
         }
     }
 }

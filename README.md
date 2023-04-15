@@ -9,3 +9,5 @@ This repository will contain most of my C# study sessions where I pick an existi
 ## Features studied so far ..
 
 - Data Types
+- Type Conversion
+- Variables
