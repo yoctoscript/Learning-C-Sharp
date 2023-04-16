@@ -2,6 +2,7 @@
 using MyDataTypes;
 using MyTypeConversion;
 using MyVariables;
+using MyConstants;
 
 namespace MyNameSpace
 {
@@ -11,7 +12,8 @@ namespace MyNameSpace
         {
             /// DataTypes.Entry();
             /// TypeConversion.Entry();
-            Variables.Entry();
+            /// Variables.Entry();
+            Constants.Entry();  
         }
     }
 }
