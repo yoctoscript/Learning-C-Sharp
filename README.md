@@ -9,7 +9,7 @@ This repository will contain most of my C# study sessions where I pick an existi
 > dotnet new console -n MyFirstProgram
 > dotnet run 
 > ...
-> Why didn’t I take the blue pill?
+> No regrets.
 ## Features studied so far ..
 
 - Data Types
