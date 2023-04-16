@@ -3,6 +3,8 @@ using MyDataTypes;
 using MyTypeConversion;
 using MyVariables;
 using MyConstants;
+using MyOperators;
+
 
 namespace MyNameSpace
 {
@@ -13,7 +15,8 @@ namespace MyNameSpace
             /// DataTypes.Entry();
             /// TypeConversion.Entry();
             /// Variables.Entry();
-            Constants.Entry();  
+            /// Constants.Entry();  
+            Operators.Entry();
         }
     }
 }
