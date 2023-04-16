@@ -11,7 +11,7 @@ This repository will contain most of my C# study sessions where I pick an existi
 
 > dotnet run 
 
-> ...
+> . . .
 
 ## Features studied so far ..
 
