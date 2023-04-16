@@ -11,3 +11,5 @@ This repository will contain most of my C# study sessions where I pick an existi
 - Data Types
 - Type Conversion
 - Variables
+- Constants
+- Operators
