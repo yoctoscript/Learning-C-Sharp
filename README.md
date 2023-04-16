@@ -13,7 +13,6 @@ This repository will contain most of my C# study sessions where I pick an existi
 
 > ...
 
-> No regrets.
 ## Features studied so far ..
 
 - Data Types
