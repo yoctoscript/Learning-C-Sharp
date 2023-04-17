@@ -4,7 +4,7 @@ using MyTypeConversion;
 using MyVariables;
 using MyConstants;
 using MyOperators;
-
+using MyDecisionMaking;
 
 namespace MyNameSpace
 {
@@ -16,7 +16,8 @@ namespace MyNameSpace
             /// TypeConversion.Entry();
             /// Variables.Entry();
             /// Constants.Entry();  
-            Operators.Entry();
+            /// Operators.Entry();
+            DecisionMaking.Entry();
         }
     }
 }
