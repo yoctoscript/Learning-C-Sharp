@@ -27,48 +27,48 @@ namespace MyDecisionMaking
             Console.WriteLine("------------------------------------------");
             /// Switch statement.
             /// Control falls through from one case label to another as long as the previous case has no body.
-            object myObject = "halo";
-            bool myBool = true;
-            Range range = 0..5;
-            /// Switch statements with pattern matching allow you to match a switch expression against a pattern, which can be a range of values, types, and structures.
+            object myObject = (string)"0.2";
             switch (myObject)
             {
                 case byte myByte:
-                case short myShort when myShort == short.MaxValue:
-                    Console.WriteLine("Fall through in outer switch");
-                    break;
+                case short myShort:
                 case int myInt:
-                    switch (myInt)
-                    {
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                        case 5:
-                            Console.WriteLine("Fall through in inner switch");
-                            if (myInt >= range.Start.Value && myInt <= range.End.Value)
-                            {
-                                Console.WriteLine("Value is between 0 and 5!");
-                            }
-                            break;
-                        case 100 when myBool:
-                            Console.WriteLine($"myInt : 100, myBool : true");
-                            break;
-                        case 100 when !myBool:
-                            Console.WriteLine($"myInt : 100, myBool : false");
-                            break;
-                        default:
-                            Console.WriteLine("Default case in inner switch");
-                            break;
-                        /// Control cannot fall out of switch from final case label (be it default or another case).
-                    }
+                    Console.WriteLine("[case byte] Fell out");
+                    Console.WriteLine("[case short] Fell out");
+                    Console.WriteLine($"[case int] Breaking");
+                    break;
+                /// Range-based case.
+                case long myLong when myLong >= 0 && myLong <= 100:
+                    Console.WriteLine($"[case long][>= 0 && <= 100] myLong: {myLong}");
                     break;
                 case long myLong:
-                    Console.WriteLine($"myLong : {myLong}");
+                    Console.WriteLine($"[case long][< 0 && > 100] myLong: {myLong}");
                     break;
-                default:
-                    Console.WriteLine("No pattern matched");
+                /// Type-based case.
+                case decimal myDecimal:
+                    switch (myDecimal)
+                    {
+                        /// Value-based case.
+                        case 10.2m:
+                            Console.WriteLine($"[case 10.2m] myDecimal: {myDecimal}");
+                            break;
+                        /// Comparison case.
+                        case > 20.0m:
+                            Console.WriteLine($"[case > 20.0] myDecimal: {myDecimal}");
+                            break;
+                        /// When clause.
+                        case 0 when 9 < 11:
+                            Console.WriteLine($"[case 0 when 9 > 11] myDecimal: {myDecimal}");
+                            break;
+                        /// Control cannot fall out of final case label (be it default or another case).
+                        default:
+                            Console.WriteLine($"[default] myDecimal: {myDecimal}");
+                            break;
+                    }
+                    break;
+                /// Control cannot fall out of final case label (be it default or another case).
+                case object:
+                    Console.WriteLine("[default] Unknown type");
                     break;
             }
         }
